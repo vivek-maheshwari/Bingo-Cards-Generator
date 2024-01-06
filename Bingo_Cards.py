@@ -147,12 +147,3 @@ testele = list()
 bcdict = dict()
 df = pd.DataFrame()
 getnoc()
-
-inputFile = 'bingo_cards.xlsx'
-outputFile = 'bingo_cards.png'
-
-workbook = Workbook()
-workbook.LoadFromFile(inputFile)
-sheet = workbook.Worksheets[0]
-sheet.ToImage(sheet.FirstRow, sheet.FirstColumn, sheet.LastRow, sheet.LastColumn).Save(outputFile)
-workbook.Dispose()
