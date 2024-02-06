@@ -5,11 +5,9 @@ from openpyxl import load_workbook
 from openpyxl.styles import Alignment, Font
 from openpyxl.styles.borders import Border, Side
 
-
 def genrandnum():
     global ele
     ele = random.choice(num)
-
 
 def gencard():
     global num, bc, ele, testele
@@ -26,7 +24,6 @@ def gencard():
                 genrandnum()
     genbcdict()
 
-
 def genbcdict():
     global ch, df, bc, bcdict
     hl = list("BINGO")
@@ -38,7 +35,6 @@ def genbcdict():
         ch = 2
     else:
         savebc()
-
 
 def savebc():
     global df
@@ -58,13 +54,11 @@ def savebc():
     except FileNotFoundError:
         newbc()
 
-
 def newbc():
     df.to_excel('bingo_cards.xlsx', index=False)
     print(df)
     formatdata()
     resetdata()
-
 
 def formatdata():
     reader = pd.read_excel('bingo_cards.xlsx')
@@ -102,7 +96,6 @@ def formatdata():
     ws.evenFooter.center.text = "CREATED BY: VIVEK"
     wb.save('bingo_cards.xlsx')
 
-
 def resetdata():
     global ele, noc, num, bc, testele, bcdict, df
     ele = 0
@@ -112,7 +105,6 @@ def resetdata():
     testele = list()
     bcdict = dict()
     df = pd.DataFrame()
-
 
 def getnoc():
     global ch, noc
@@ -136,13 +128,8 @@ def getnoc():
         print("Invalid input...")
         getnoc()
 
-
-ch = 0
-ele = 0
-noc = 0
-num = list()
-bc = list()
-testele = list()
+ch, ele, noc = 0, 0, 0
+num, bc, testele = list(), list(), list()
 bcdict = dict()
 df = pd.DataFrame()
 getnoc()
